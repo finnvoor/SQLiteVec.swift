@@ -130,3 +130,5 @@ extension Int: Number, Value {
     }
 
 }
+
+extension [Float]: Binding {}

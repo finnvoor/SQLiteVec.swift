@@ -109,6 +109,8 @@ public final class Statement {
             self.bind(value.datatypeValue, atIndex: idx)
         case let value as Bool:
             self.bind(value.datatypeValue, atIndex: idx)
+        case let value as [Float]:
+            sqlite3_bind_blob(handle, Int32(idx), value, Int32(MemoryLayout<Float>.stride * value.count), SQLITE_STATIC)
         case .some(let value):
             fatalError("tried to bind unexpected value \(value)")
         }
